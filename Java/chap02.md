@@ -1,7 +1,7 @@
 2-4
 The **width** (p91) specifies the minimum number of characters in the output.
 
-**throws Exception** ?
+**throws Exception** (p93)
 
 **Enter** (p94)
 - CR(캐리지 리턴) = 13
@@ -11,3 +11,5 @@ The **width** (p91) specifies the minimum number of characters in the output.
 **Scanner** (p95)
 - `System.in.read()`의 단점 : 2개 이상의 키가 조합된 한글과 통 문자열을 읽지 못함 
 - 자바는 위 단점을 보완하기 위한 Scanner 클래스를 제공
+- import java.util.Scanner;
+
