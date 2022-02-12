@@ -12,7 +12,17 @@ The **width** (p91) specifies the minimum number of characters in the output.
 - `System.in.read()`의 단점 : 2개 이상의 키가 조합된 한글과 통 문자열을 읽지 못함 
 - 자바는 위 단점을 보완하기 위한 Scanner 클래스를 제공
 - import java.util.Scanner;
-- 입력된 모든 내용을 문자열로 읽음
+- 입력된 모든 내용을 **문자열**로 읽음
+```java
+...
+import java.util.Scanner;
+...
+Scanner scanner = new Scanner(System.in);
+String str1 = scanner.nextLine();
+// Double num1 = Double.parseDouble(scanner.nextLine()); 
+...
+``` 
+
 
 **print** (p98)
 ```java
@@ -31,7 +41,7 @@ public class Exam01 {
     }
 }
 ```
-- *`shift + tap` : 들여쓰기 해제*
+- `shift + tap` : 들여쓰기 해제
 
 ---
 
@@ -50,16 +60,18 @@ public class Exam01 {
 
 - !는 boolean타입에만 사용
 
+- 나눗셈(/) 사용시 변환되는 타입 주의
 - 리터럴 간 연산은 컴파일 단계에서 수행하여 타입 변환 **없음**
+
 - 비교 연산자 실수 타입 `0.1 == 0.1f`의 결과값은 **false**로 산출됨
-    - 원인 : 실수의 저장방식인 부동 소수점 방식이 0.1을 정확히 표현
+    - 원인 : 실수의 저장방식인 부동 소수점 방식이 0.1을 정확히 표현하지 않음
     - 해결 : 피연산자를 모두 float 혹은 정수 타입으로 변환하여 비교
 
 - 문자열 비교는 == 대신 **equals()** 메소드 사용
 
 ```java
-    int x = 10;
-	int y = 20;
-	int z = (++x) + (y--);
-	System.out.println(z);
+int x = 10;
+int y = 20;
+int z = (++x) + (y--);
+System.out.println(z);  //31
 ```
