@@ -92,6 +92,8 @@ System.out.println(z);  //31
 **break, continue**
 - 주로 if문과 함께 사용
 - 중첩된 반복문에서 break문은 가장 가까운 반복문만 종료하므로 바깥쪽 까지 종료하려면 바깥쪽 반복문에 이름(라벨)을 붙이고 `break 이름;`을 사용
+
+`System.out.println()` : `System.out.print("\n")`과 같은 효과
 ---
 ### 5-1. 참조 타입과 참조 변수
 ### 5-2. 배열
