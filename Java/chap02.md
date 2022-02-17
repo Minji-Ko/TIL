@@ -96,5 +96,18 @@ System.out.println(z);  //31
 `System.out.println()` : `System.out.print("\n")`과 같은 효과
 ---
 ### 5-1. 참조 타입과 참조 변수
+**참조타입**
+기본타입은 실제 값을 변수에 저장하지만, 참조타입은 번지를 통해 객체를 참조
+- 바이트 코드 파일: 자바 소스 파일을 javac명령어로 컴파일한 파일
+- JVM : 자바 가상 기계(Jave Virtual Machine)는 바이트 코드 파일을 운영체제를 위한 완전한 기계어로 번역하고 실행하는 역할을 함
+
+★
+== : 같은객체참조하는지 비교 (x)
+equals() : 문자비교 (o)
+
 ### 5-2. 배열
+
+**배열 복사**
+System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length) : 원본배열, 인덱스, 대상배열, 인덱스, 몇개
+
 ### 5-3. 열거 타입
