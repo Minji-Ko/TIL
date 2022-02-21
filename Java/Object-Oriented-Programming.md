@@ -1,4 +1,4 @@
-chap06
+### chap06
 **클래스**
 - 클래스 : 자바의 설계도 
   인스턴스(객체) : 클래스로부터 만들어진 객체
@@ -56,8 +56,68 @@ chap06
   //생성자
   private 클래스(){ }
 
-//정적 메소드
-static 클래스 getInstance(){
-  return singleton;
-}
+  //정적 메소드
+  static 클래스 getInstance(){
+    return singleton;
+  }
+  ```
+- final 필드 
+  - 인스턴스 : 생성자에서 초기화! `final 타입 필드[= 초기값];`
+  - 정적 : 관례적으로 대문자로 작성! `static final 타입 상수 = 초기값;` 
+
+**패키지선언**
+- import문 
+  - 사용하고자 하는 클래스 또는 인터페이스가 다른 패키지에 소속된 경우
+  - 패키지 선언과 클래스 선언 사이에 작성
+  - 하위 패키지는 별도로 import를 해야함 
+    `import com.hankook.*;`
+    `import com.hankook.project.*;`
+  - 다른 패키지에 동일한 이름의 클래스가 있을 경우, import와 상관없이 클래스 <u>전체이름</u>을 기술
+    - 이 때, 개별 import문은 작성하지 않아도 됨
+
+**접근 제한자**
+- public :                `public ClassName(...){...}`
+- protected
+- default : 같은 패키지 내 `ClassName(...){...}`
+- private : 클래스 내부    `private ClassName(...){...}`  
+- 접근제한자를 붙이지 않으면 default
+- 자동적으로 만들어지는 기본생산자도 접근제한자가 붙음
+
+**Getter, Setter**
+- 외부에서 객체에 마음대로 접근할 경우 <u>객체의 무결성</u> 깨질 수 있음. -> Field에 pirvate를 붙이고, get과 set 메소드를 이용
+```java
+  class Car{
+    private int speed;
+    private boolean stop;
+
+    public int getSpeed(){
+      return speed;
+    }
+
+    public void setSpeed(int s){
+      this.speed = s;
+    }
+  }
+  ```
+- Getter 메소드
+  - 외부로 필드값을 <u>전달</u>하는 것이 목적
+  - 필드값을 가공해서 외부로 전달할 수 도 있음
+  ```java
+  double getSpeed(){
+    double km = speed * 1.6;
+    return km;
+  }
+  ```
+- Setter 메소드 
+  - 외부의 값을 받아 필드의 값을 변경하는 것이 목적
+  - 매개값을 검증하여 유효한 값만 필드로 저장할 수 있음
+  ```java
+  void setSpeed(double speed){
+    if(speed < 0){
+      this.speed = 0;
+      return; 
+    } else {
+      this.speed = speed;
+    }
+  }
   ```
