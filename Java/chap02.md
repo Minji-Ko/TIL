@@ -110,4 +110,15 @@ equals() : 문자비교 (o)
 **배열 복사**
 System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length) : 원본배열, 인덱스, 대상배열, 인덱스, 몇개
 
+**향상된 for문**
+for(타입 변수 : 배열){};
+
 ### 5-3. 열거 타입
+**열거 타입**
+열거 상수(한정된 값)을 저장하는 타임
+**열거 타입 선언, 저장**
+```java
+public enum Week { MONDAY, TUESDAY... SUNDAY }
+
+Week today = Week.SUNDAY;
+```

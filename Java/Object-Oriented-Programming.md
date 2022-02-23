@@ -74,6 +74,7 @@
     `import com.hankook.project.*;`
   - 다른 패키지에 동일한 이름의 클래스가 있을 경우, import와 상관없이 클래스 <u>전체이름</u>을 기술
     - 이 때, 개별 import문은 작성하지 않아도 됨
+  - `Ctrl + Shift + O`
 
 **접근 제한자**
 - public :                `public ClassName(...){...}`
@@ -82,6 +83,7 @@
 - private : 클래스 내부    `private ClassName(...){...}`  
 - 접근제한자를 붙이지 않으면 default
 - 자동적으로 만들어지는 기본생산자도 접근제한자가 붙음
+- 클래스에는 public만 붙음
 
 **Getter, Setter**
 - 외부에서 객체에 마음대로 접근할 경우 <u>객체의 무결성</u> 깨질 수 있음. -> Field에 pirvate를 붙이고, get과 set 메소드를 이용
@@ -102,6 +104,7 @@
 - Getter 메소드
   - 외부로 필드값을 <u>전달</u>하는 것이 목적
   - 필드값을 가공해서 외부로 전달할 수 도 있음
+  - boolean타입의 getter는 `get`이 아닌 `is`
   ```java
   double getSpeed(){
     double km = speed * 1.6;
@@ -109,7 +112,7 @@
   }
   ```
 - Setter 메소드 
-  - 외부의 값을 받아 필드의 값을 변경하는 것이 목적
+  - 외부의 값을 받아 필드의 값을 <u>변경</u>하는 것이 목적
   - 매개값을 검증하여 유효한 값만 필드로 저장할 수 있음
   ```java
   void setSpeed(double speed){
@@ -121,3 +124,66 @@
     }
   }
   ```
+
+
+### chap07
+**상속**
+- 이미 개발된 클래스를 재사용하여 중복코드와 유지보수 시간이 줄어듬
+- `public class SportsCar extends Car {...}`
+- 부모 클래스는 하나
+- 부모 클래스에서 private 접근 제한을 갖는 필드와 메소드는 상속대상 제외
+- 부모와 자식 클래스가 다른 패키지에 존재할 경우, default 접근 제한된 필드와 메소드 역시 상속 제외 
+- 자식 객체를 생성할 때 부모 객체가 먼저 생성되고 자식 객체가 생성됨
+  - 자식 생성자의 맨 첫줄에서 부모 생성자가 호출됨 `super();`
+  - 부모 생성자를 호출 할 때 매개변수가 있으면 `super(a,b);`
+
+  **다형성**
+  - 다형성 :  재정의[Override] + 타입변환
+  - 클래스 타입 변환 : 다른 클래스 타입으로 객체를 대입
+  - 자동 타입 변환 : 부모타입 변수 = 자식타입;
+    - 바로 위 부모가 아니더라도 상속 계층에서 상위 타입이면 자동 타입 변환
+    - 부모타입으로 자동변환 이후에는 부모클래스에 선언된 필드 및 메소드만 접근 가능
+    - 예외적으로, 메소드가 자식 클래스에서 재정의될 경우 자식 클래스의 메소드가 대신 호출
+  - 강제 타입 변환 : 자식타입 변수 = **(자식타입)** 부모타입;
+    - 조건 : 자식 타입이 부모 타입으로 자동 타입 변환한 후 다시 반대로 변환할 때 사용
+    - `Parent parent = new Child();`
+    - `Child child = (Child) parent;`
+    - 메소드 내 강제 타입 변환이 필요한 경우, instanceof 연산자로 확인 후 안전하게 실행
+      - `boolean result = 좌항(객체) instanceof 우항(타입)`
+      - 타입을 확인하지 않으면 ClassCastException 발생가능
+  - 필드의 다형성
+    ```java
+    class Car {
+      //Field
+      Tire frontLeftTire = new Tire(); 
+      Tire frontRightTrie = new Tire();
+      Tire backLeftTire = new Tire();
+      Tire backRightTire = new Tire();
+    }
+      //Method
+      void run(){}
+    ```
+    ```java
+    Car myCar = new Car();
+    myCar.frontRightTire = new HankookTire();
+    myCar.run(); 
+    ```
+  - 매개변수의 다형성
+    - 매개변수에 객체를 줄 수 있음
+
+**추상 클래스**
+```mermaid
+stateDiagram
+  Animal --> Bird
+  Animal --> Insect
+  Animal --> Fish 
+```
+- 실체 클래스의 설계 규격 - 객체생성용 아님! (실체 클래스에 반드시 존재해야할 필드와 메소드의 선언)
+- 추상 클래스와 실체 클래스는 부모-자식 클래스로서 상속 관계를 가짐  
+- 실체 클래스에는 공통된 내용은 빠르게 물려받고, 다른 점만 선언하면 되므로 시간 절약
+- `public abstract class 클래스{}`
+- 추상 클래스도 생성자를 갖지만 직접 객체를 생성할 수 없음. 자식 생성자에서 super(...) 형태로만 추상 클래스의 생성자 호출
+- 추상 메소드 
+  - `[public | protected] abstract 리턴타입 메소드이름(매개변수);`
+  - abstract 키워드로  선언되고 중괄호가 없는 메소드
+  - 하위 클래스는 반드시 재정의해서 실행 내용을 채워야 함
