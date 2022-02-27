@@ -130,8 +130,9 @@
       this.speed = speed;
     }
   }
-  ```
+  ```   
 
+---  
 
 ### CHAP07
 **상속**
@@ -144,39 +145,39 @@
   - 자식 생성자의 맨 첫줄에서 부모 생성자가 호출됨 `super();`
   - 부모 생성자를 호출 할 때 매개변수가 있으면 `super(a,b);`
 
-  **다형성**
-  - 다형성 :  메소드 재정의[Override] + 타입변환
-  - 클래스 타입 변환 : 다른 클래스 타입으로 객체를 대입
-  - 자동 타입 변환 : 부모타입 변수 = 자식타입;
-    - 바로 위 부모가 아니더라도 상속 계층에서 상위 타입이면 자동 타입 변환
-    - 부모타입으로 자동변환 이후에는 부모클래스에 선언된 필드 및 메소드만 접근 가능
-    - 예외적으로, 메소드가 자식 클래스에서 재정의될 경우 자식 클래스의 메소드가 대신 호출
-  - 강제 타입 변환 : 자식타입 변수 = **(자식타입)** 부모타입;
-    - 조건 : 자식 타입이 부모 타입으로 자동 타입 변환한 후 다시 반대로 변환할 때 사용
-    - `Parent parent = new Child();`
-    - `Child child = (Child) parent;`
-    - 메소드 내 강제 타입 변환이 필요한 경우, instanceof 연산자로 확인 후 안전하게 실행
-      - `boolean result = 좌항(객체) instanceof 우항(타입)`
-      - 타입을 확인하지 않으면 ClassCastException 발생가능
-  - 필드의 다형성
-    ```java
-    class Car {
-      //Field
-      Tire frontLeftTire = new Tire(); 
-      Tire frontRightTrie = new Tire();
-      Tire backLeftTire = new Tire();
-      Tire backRightTire = new Tire();
-    }
-      //Method
-      void run(){}
-    ```
-    ```java
-    Car myCar = new Car();
-    myCar.frontRightTire = new HankookTire();
-    myCar.run(); 
-    ```
-  - 매개변수의 다형성
-    - 매개변수에 객체를 줄 수 있음
+**다형성**
+- 다형성 :  메소드 재정의[Override] + 타입변환
+- 클래스 타입 변환 : 다른 클래스 타입으로 객체를 대입
+- 자동 타입 변환 : 부모타입 변수 = 자식타입;
+  - 바로 위 부모가 아니더라도 상속 계층에서 상위 타입이면 자동 타입 변환
+  - 부모타입으로 자동변환 이후에는 부모클래스에 선언된 필드 및 메소드만 접근 가능
+  - 예외적으로, 메소드가 자식 클래스에서 재정의될 경우 자식 클래스의 메소드가 대신 호출
+- 강제 타입 변환 : 자식타입 변수 = **(자식타입)** 부모타입;
+  - 조건 : 자식 타입이 부모 타입으로 자동 타입 변환한 후 다시 반대로 변환할 때 사용
+  - `Parent parent = new Child();`
+  - `Child child = (Child) parent;`
+  - 메소드 내 강제 타입 변환이 필요한 경우, instanceof 연산자로 확인 후 안전하게 실행
+    - `boolean result = 좌항(객체) instanceof 우항(타입)`
+    - 타입을 확인하지 않으면 ClassCastException 발생가능
+- 필드의 다형성
+  ```java
+  class Car {
+    //Field
+    Tire frontLeftTire = new Tire(); 
+    Tire frontRightTrie = new Tire();
+    Tire backLeftTire = new Tire();
+    Tire backRightTire = new Tire();
+  }
+    //Method
+    void run(){}
+  ```
+  ```java
+  Car myCar = new Car();
+  myCar.frontRightTire = new HankookTire();
+  myCar.run(); 
+  ```
+- 매개변수의 다형성
+  - 매개변수에 객체를 줄 수 있음
 
 **추상 클래스**
 ```mermaid
