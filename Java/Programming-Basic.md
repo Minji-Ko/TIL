@@ -1,15 +1,47 @@
-### 1
+### 1. 환경설정
+---
 **JDK**
-- 'bin'(binary) folder 
+- bin(binary) / 실행파일
     - *.dll > 독립 실행 불가능 
     - *.exe > 독립 실행 가능
         - java.exe 
         - javac.exe 
         - javadoc.exe
-- java.exe 바로호출 설정 : 환경변수 설정
-    - 시스템 > 고급 > 환경변수 > Path
-    - JAVA_HOME 
-    - Path > 
+- java.exe 바로실행 설정 : 환경변수 설정
+    - 시스템 > 정보 > 고급 > 환경변수 
+    - `Add` : JAVA_HOME, C:\ ... \jdk-11.0.2
+    - `Edit` : Path > %JAVA_HOME%\bin
+
+**Eclipse**
+- eclipse.ini 
+    - `Edit` : -vm ... (소규모 자바도구의 경로) > 안정성 증가
+- window > preference 설정
+    - font : 가독성 높음 / 고정폭 폰트 
+    - encoding > UTF-8
+    - theme
+
+**Hello world!!**
+1. 메모장
+	- 코드 작성
+	- 산출물(결과물) > "Hello.java" > Source Code File
+	- 소스 파일은 프로그램이 아니다. > 텍스트 파일이다.
+	- 프로그래밍 코드를 작성 > 프로그램 완성 > CPU에게 명령어 전달!!
+	- 어떤 언어로 구성? > 자바(X) > 사람이 쓰는 언어로 구성(인간)
+	- 소스 파일의 명령어의 실행 주체 > 컴퓨터(CPU) > 이진데이터(1, 0)
+
+2. javac.exe Hello.java
+	- 1차 컴파일
+	- javac.exe 파일명
+	- javac.exe > Java Compiler >  사람이 작성한 코드를 컴퓨터가 이해하는 코드로 번역 하는 프로그램
+	- 번역 작업 실행 > Compile
+	- 산출물 > "Hello.class" > 실행 파일(클래스 파일)
+	- Hello.class > 컴퓨터 실행(바이너리 코드, 이진 데이터, 기계어, Machine Code)
+	
+3. java.exe Hello
+	- 2차 컴파일	//java - 2번의 번역
+	- java.exe > Java Compiler, Java Interpreter, 실행기
+	- java.exe 클래스명 > 최종 실행
+
 
 ### 2-4. 변수와 시스템 입출력
 The **width** (p91) specifies the minimum number of characters in the output.
