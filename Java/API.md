@@ -64,3 +64,4 @@
 **String 클래스**
 - 직접 String 객체 생성
 - 문자추출 `charAt()`
+- 문자열 비교 `equals()`

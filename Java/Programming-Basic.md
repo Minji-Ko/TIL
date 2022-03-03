@@ -1,3 +1,16 @@
+### 1
+**JDK**
+- 'bin'(binary) folder 
+    - *.dll > 독립 실행 불가능 
+    - *.exe > 독립 실행 가능
+        - java.exe 
+        - javac.exe 
+        - javadoc.exe
+- java.exe 바로호출 설정 : 환경변수 설정
+    - 시스템 > 고급 > 환경변수 > Path
+    - JAVA_HOME 
+    - Path > 
+
 ### 2-4. 변수와 시스템 입출력
 The **width** (p91) specifies the minimum number of characters in the output.
 
