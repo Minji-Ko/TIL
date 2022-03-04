@@ -1,26 +1,38 @@
-### 1. 환경설정
+### Chapter 01 자바를 시작하기 전에
 ---
-**JDK**
-- bin(binary) / 실행파일
-    - *.dll > 독립 실행 불가능 
-    - *.exe > 독립 실행 가능
-        - java.exe 
-        - javac.exe 
-        - javadoc.exe
-- java.exe 바로실행 설정 : 환경변수 설정
+#### 1. 자바 
+
+> **자바의 특징**
+- 운영체제에 독립적
+- 객체지향언어
+- 비교적 배우기 쉬움
+- 자동 메모리 관리 > 가비지컬렉터
+- 네트워크와 분산처리 지원
+- 멀티쓰레드 지원
+- 동적 로딩 지원
+
+#### 2. 자바개발환경 구축
+> **JDK : 자바개발도구**
+- JDK 설치
+    - bin 디렉토리 > 실행파일
+        - *.dll : 독립 실행 불가능 
+        - *.exe : 독립 실행 가능 > javac.exe / java.exe / javadoc.exe / ...
+- 환경변수 설정 : 해당 디렉토리 내 파일을 경로없이 이름만으로 사용 
     - 시스템 > 정보 > 고급 > 환경변수 
     - `Add` : JAVA_HOME, C:\ ... \jdk-11.0.2
     - `Edit` : Path > %JAVA_HOME%\bin
-
-**Eclipse**
+    
+> **Eclipse**
 - eclipse.ini 
-    - `Edit` : -vm ... (소규모 자바도구의 경로) > 안정성 증가
-- window > preference 설정
-    - font : 가독성 높음 / 고정폭 폰트 
+    - `Edit` : -vm ... > 소규모 자바도구의 경로를 수정하여 안정성 증가
+- window > preference 
+    - font : 가독성 높은 고정폭 폰트 선호 
     - encoding > UTF-8
     - theme
 
-**Hello world!!**
+#### 3. 자바로 프로그램작성하기
+
+>**Hello world!!**
 1. 메모장
 	- 코드 작성
 	- 산출물(결과물) > "Hello.java" > Source Code File
@@ -36,12 +48,14 @@
 	- 번역 작업 실행 > Compile
 	- 산출물 > "Hello.class" > 실행 파일(클래스 파일)
 	- Hello.class > 컴퓨터 실행(바이너리 코드, 이진 데이터, 기계어, Machine Code)
+    - 중간언어(IL) 산출물 > 실행파일(=프로그램)
 	
 3. java.exe Hello
-	- 2차 컴파일	//java - 2번의 번역
+	- 2차 컴파일, 인터프리터, JIT(Just in time) 컴파일러	//java - 2번의 번역
 	- java.exe > Java Compiler, Java Interpreter, 실행기
-	- java.exe 클래스명 > 최종 실행
-
+	- java.exe 클래스명 > 최종 실행                         //산출물 없음
+    - 최종적으로 운영체제에 적합한 기계어로 바꿔주는 번역 작업
+---
 
 ### 2-4. 변수와 시스템 입출력
 The **width** (p91) specifies the minimum number of characters in the output.
