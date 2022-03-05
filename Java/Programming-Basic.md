@@ -54,8 +54,45 @@
 	- 2차 컴파일, 인터프리터, JIT(Just in time) 컴파일러	//java - 2번의 번역
 	- java.exe > Java Compiler, Java Interpreter, 실행기
 	- java.exe 클래스명 > 최종 실행                         //산출물 없음
-    - 최종적으로 운영체제에 적합한 기계어로 바꿔주는 번역 작업
+    - 최종적으로 운영체제에 적합한 기계어로 바꿔주는 번역 작업  
+
+<br><br>
+### Chapter 02 변수
 ---
+
+#### 1. RAM (메모리) 
+> **주 기억장치 RAM**
+- 최소 저장단위 1byte = 8bit > 0~255
+- 저장범위가 이미 규정되어 있음 > 1byte, 2byte, 4byte, 8byte 
+- 프로그램이 필요로 하는 공간을 '연속적으로' 할당
+
+#### 2. 자료형
+
+> **기본형 Primitive type; 원시형, 값형**
+1. 숫자형
+    - **정수형**
+        - `byte`    : 1byte(=8bit)   / 2^8 / -128~127
+        - `short`  : 2byte(=16bit) / 2^16
+        - `int`      : 4byte(=32bit) / 2^32
+        - `long`    : 8byte(=64bit) / 2^64
+    - **실수형**
+        - `float`  : 4byte, 무제한, 단정도형(정밀도 > 유효한 숫자 저장할 범위)
+        - `double` : 8byte, 무제한, 배정도형(단정도*2 정밀도)
+2. 문자형
+    - **문자형**
+        - `char`    : 2byte / 유니코드 지원
+3. 논리형
+    - **논리형**
+        - `boolean` : 1byte / 명제의 참, 거짓 / true(00000001), false(00000000)
+
+> **참조형 Reference Type**  
+
+<br>
+#### 3. 변수
+
+> **Variable : 변수** 
+- 개념 : 개발자가 명령어를 사용하여 할당받은 메모리 공간
+- 목적 : 원하는 데이터를 읽거나 쓰기위한 공간
 
 ### 2-4. 변수와 시스템 입출력
 The **width** (p91) specifies the minimum number of characters in the output.
